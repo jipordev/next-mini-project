@@ -6,9 +6,9 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-
 
 function FooterComponent() {
   return (
-    <Footer container className="rounded-none">
+    <Footer container className="rounded-none bg-[#e4ebff]">
       <div className="w-full">
-        <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
+        <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1 ">
           <div>
             <Footer.Brand
               href="https://flowbite.com"

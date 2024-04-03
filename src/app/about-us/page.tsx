@@ -1,9 +1,8 @@
 import React from 'react'
 
-function page() {
+export default function AboutUsPage() {
   return (
-    <div>page</div>
+    <div className='text-center'>this is about us page</div>
   )
 }
 
-export default page

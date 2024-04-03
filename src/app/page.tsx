@@ -4,6 +4,7 @@ import ProductCard from "@/components/card/ProductCardComponent";
 import { ProductType } from "@/components/types/ProductType";
 import { Suspense, useEffect, useState } from "react";
 import LoadingComponent from "./loading";
+import BannerComponent from "@/components/constants/images/Banner";
 
 export default function Home() {
 
@@ -26,10 +27,19 @@ export default function Home() {
   }, [])
 
   return (
-    <main>
-        <h1 className="text-center p-5 text-3xl text-gray-100">Products</h1>
-        <section className="container-sm mx-[100px] grid grid-cols-4 gap-4">
-          <Suspense fallback={<LoadingComponent/>}>
+    <Suspense fallback={<LoadingComponent/>}>
+      <main className="bg-red-50">
+        <section className="container-sm mx-[100px] grid grid-cols-2 gap-10 mt-12">
+          <div className="flex flex-col justify-evenly m-auto">
+            <h2 className="text-4xl font-bold py-3 leading-normal">Spring Shop</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum unde aspernatur aliquam temporibus quo quam suscipit, illum doloremque, exercitationem quas sint, provident porro soluta placeat laudantium nesciunt veritatis pariatur ab!</p>
+          </div>
+          <div className="m-auto">
+            <BannerComponent/>
+          </div>
+        </section>
+        <h1 className="font-normal text-center mb-10 text-3xl">Products</h1>
+        <section className="container-sm mx-[100px] grid grid-cols-4 gap-7 mb-12">
             {
               products.map((product:ProductType) => (
                 <ProductCard
@@ -40,8 +50,8 @@ export default function Home() {
                 />
               ))
             }
-          </Suspense>
         </section>
     </main>
+    </Suspense>
   );
 }

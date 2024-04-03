@@ -38,11 +38,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+  return (  
     <html lang="en">
       <body className={kantumruy_pro.className}>
-        <div className="h-screen flex flex-col justify-between">
-          <NavBarComponent/>
+        <div className="h-screen flex flex-col justify-between text-[#34416A]">
+          <NavBarComponent/>  
           {children}
           <FooterComponent/>
         </div>

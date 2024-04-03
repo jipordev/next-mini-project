@@ -1,9 +1,7 @@
 import React from 'react'
 
-function page() {
+export default function PolicyPage() {
   return (
-    <div>page</div>
+    <div  className='text-center'>this is policy page</div>
   )
 }
-
-export default page
