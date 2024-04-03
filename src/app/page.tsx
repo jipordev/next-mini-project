@@ -38,7 +38,8 @@ export default function Home() {
             <BannerComponent/>
           </div>
         </section>
-        <h1 className="font-normal text-center mb-10 text-3xl">Products</h1>
+        <h1 className="font-normal text-center mb-10 text-3xl">Our Products</h1>
+        <h1 className="font-normal text-center mb-10 text-3xl">Hello, World!</h1>
         <section className="container-sm mx-[100px] grid grid-cols-4 gap-7 mb-12">
             {
               products.map((product:ProductType) => (
