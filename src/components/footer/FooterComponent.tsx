@@ -6,7 +6,7 @@ import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-
 
 function FooterComponent() {
   return (
-    <Footer container className="rounded-none bg-[#e4ebff]">
+    <Footer container className="rounded-none bg-gray-50">
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1 ">
           <div>

@@ -5,7 +5,7 @@ import { sideBarItem } from "./sideBarMenu";
 
 export default function DashboardSidebar() {
   return (
-    <Sidebar className="h-[92vh]" aria-label="Default sidebar example">
+    <Sidebar className="h-screen rounded-none " aria-label="Default sidebar example">
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           {sideBarItem.map((item, index) => (

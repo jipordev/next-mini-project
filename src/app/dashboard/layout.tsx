@@ -6,7 +6,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-   <aside className="flex">
+    <aside className="flex">
    <DashboardSidebar/>
     {children}
    </aside>

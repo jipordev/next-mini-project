@@ -53,9 +53,9 @@ function ProductCard({name, price, image}:ProductType) {
         </span>
       </div>
       <div className="flex items-center justify-between">
-        <span className="text-2xl font-semibold text-red-500 dark:text-white">${price}</span>
+        <span className="text-2xl font-semibold text-[#ff0000] dark:text-white">${price}</span>
         <div
-          className="rounded-lg bg-blue-700 px-4 py-3 text-center text-sm font-medium text-white hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+          className="rounded-lg bg-[#ff8b00] px-4 py-3 text-center text-sm font-semibold text-white hover:bg-[#ff8c00da] focus:outline-none focus:ring-4 dark:bg-[#ff8c00] dark:hover:bg-[#ff8c00da]"
         >
           Add to cart
         </div>

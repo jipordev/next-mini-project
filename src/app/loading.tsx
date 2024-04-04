@@ -4,5 +4,9 @@
 import { Spinner } from "flowbite-react";
 
 export default function LoadingComponent() {
-  return <Spinner aria-label="Default status example" />;
+  return (
+      <div className="bg-[whitesmoke] h-screen">
+      <Spinner aria-label="Default status example" />
+      </div>
+  )
 }

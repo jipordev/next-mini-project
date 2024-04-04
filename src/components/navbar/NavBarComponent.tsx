@@ -3,19 +3,21 @@
 import { Button, Navbar } from "flowbite-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { FaCartPlus } from "react-icons/fa6";
 
 function NavBarComponent() {
 
   const route = useRouter()
 
   return (
-    <Navbar className="bg-[#e4ebff]">
+    <Navbar className="bg-gray-50">
       <Navbar.Brand href="https://flowbite-react.com">
         <img src="https://api.istad.co/media/image/c8c41751-3bc0-4f07-9658-7d95efbae692.png" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
-        <span className="self-center whitespace-nowrap text-xl font-semibold dark:text-white">Srping Shop</span>
+        <span className="self-center whitespace-nowrap text-[20px] font-semibold dark:text-white">Chh1p Shop</span>
       </Navbar.Brand>
-      <div className="flex md:order-2">
-        <button className="font-semibold text-gray-100 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700" onClick={()=> route.push("/dashboard")}>Dashboard</button>
+      <div className="flex md:order-2 items-center">
+        <span className="mr-7"><FaCartPlus color="#34416A" size={26}/></span>
+        <button className="font-semibold text-gray-100 px-4 py-2 rounded-xl bg-[#ff8b00] hover:bg-[#ff8c00da]" onClick={()=> route.push("/dashboard")}>Dashboard</button>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>

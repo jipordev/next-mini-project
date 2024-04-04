@@ -2,7 +2,11 @@ import React from 'react'
 
 export default function AboutUsPage() {
   return (
-    <div className='text-center'>this is about us page</div>
+    <div className='h-screen grid bg-[whitesmoke]'>
+      <p className='m-auto'>
+        this is about us page
+      </p>
+    </div>
   )
 }
 

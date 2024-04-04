@@ -2,6 +2,10 @@ import React from 'react'
 
 export default function PolicyPage() {
   return (
-    <div  className='text-center'>this is policy page</div>
+    <main  className='h-screen bg-[whitesmoke] grid'>
+      <p className='m-auto'>
+        this is policy page
+      </p>
+    </main>
   )
 }
