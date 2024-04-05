@@ -1,5 +1,6 @@
 import React from 'react'
 import { BASE_API_URL } from '../../../lib/constants'
+import Image from 'next/image'
 export type ParamProps = {
     params: {
       id: number
@@ -21,7 +22,7 @@ async function page({ params }: ParamProps) {
     <main className='bg-[whitesmoke]'>
       <section className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 container-sm mx-[20px] sm:mx-[50px] md:mx-[80px] lg:mx-[150px] my-12'>
        <div className='w-[350px] mx-auto sm:w-[300px] md:w-[400px] lg:w-[500px] h-auto'>
-        <img className='rounded-md shadow-md' src={productDetail.image} alt="" />
+        <Image className='rounded-md shadow-md' src={productDetail.image} alt="" />
        </div>
        <div className='p-2'>
         <h1 className='text-[24px] font-medium mb-3'
