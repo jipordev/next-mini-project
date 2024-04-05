@@ -1,4 +1,6 @@
+import { Card } from "flowbite-react";
 import { ProductType } from "../types/ProductType";
+import Image from "next/image";
 
 function ProductCard({name, price, image, desc}:ProductType) {
   return (
@@ -6,7 +8,7 @@ function ProductCard({name, price, image, desc}:ProductType) {
       className="max-w-sm bg-[#ffffff] shadow-sm rounded-md flex flex-col justify-between"
     >
       <div className="lg:h-56 overflow-hidden">
-       <img src={image} className="w-full md:h-44 h-full object-cover rounded-t-md"/>
+       <Image src={image} className="w-full md:h-44 h-full object-cover rounded-t-md" alt={""}/>
       </div>
       <div className="p-4 sm:p-4 md:p-4 lg:p-6">
       <div>

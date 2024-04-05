@@ -1,6 +1,7 @@
 'use client'
 import React from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function NotFound() {
   const route = useRouter()
@@ -23,12 +24,12 @@ export default function NotFound() {
             </div>
           </div>
           <div>
-            <img src="https://i.ibb.co/G9DC8S0/404-2.png" />
+            <Image src="https://i.ibb.co/G9DC8S0/404-2.png" alt=''/>
           </div>
         </div>
       </div>
       <div>
-        <img src="https://i.ibb.co/ck1SGFJ/Group.png" />
+        <Image src="https://i.ibb.co/ck1SGFJ/Group.png" alt=''/>
       </div>
     </div>
   )

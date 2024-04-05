@@ -76,7 +76,7 @@ const ProductTable = () => {
     {
       name: "Image",
       selector: (row): any => (
-        <img src={row.image} width={80} height={80} alt="product" />
+        <Image src={row.image} width={80} height={80} alt="product" />
       ),
     },
     {
