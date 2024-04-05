@@ -134,7 +134,8 @@ const ProductTable = () => {
       return item.name?.toLowerCase().includes(search.toLowerCase());
     });
     setFilter(result);
-  }, [setProduct, search]);
+  }, [getProduct, search]); // Include getProduct and search in the dependency array
+  
 
   const paginationComponentOptions = {
     rowsPerPageText: "ជួរដេកក្នុងមួយទំព័រ",
