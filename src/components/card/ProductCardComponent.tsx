@@ -2,7 +2,7 @@ import { Card } from "flowbite-react";
 import { ProductType } from "../types/ProductType";
 import Image from "next/image";
 
-function ProductCard({name, price, image, desc}:ProductType) {
+function ProductCard({name, price, image, desc, quantity}:ProductType) {
   return (
     <div 
       className="max-w-sm bg-[#ffffff] shadow-sm rounded-md flex flex-col justify-between"
@@ -14,7 +14,7 @@ function ProductCard({name, price, image, desc}:ProductType) {
       <div>
         <h5 className=" lg:text-xl font-semibold tracking-tight text-[#34416A] dark:text-white">
           {name}
-        </h5>
+        </h5> 
       </div>
       <div className="mb-5 mt-2.5 flex items-center">
         <svg

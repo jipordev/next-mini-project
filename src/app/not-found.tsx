@@ -6,7 +6,8 @@ import Image from 'next/image'
 export default function NotFound() {
   const route = useRouter()
   return (
-    <div className="lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
+    <main className='bg-[whitesmoke] my-auto'>
+      <div className="h-screen lg:px-24 lg:py-24 md:py-20 md:px-44 px-4 py-24 items-center flex justify-center flex-col-reverse lg:flex-row md:gap-28 gap-16">
       <div className="xl:pt-24 w-full xl:w-1/2 relative pb-12 lg:pb-0">
         <div className="relative">
           <div className="absolute">
@@ -24,13 +25,14 @@ export default function NotFound() {
             </div>
           </div>
           <div>
-            <Image src="https://i.ibb.co/G9DC8S0/404-2.png" alt=''/>
+            <Image width={200} height={200} src="https://i.ibb.co/G9DC8S0/404-2.png" alt=''/>
           </div>
         </div>
       </div>
       <div>
-        <Image src="https://i.ibb.co/ck1SGFJ/Group.png" alt=''/>
+        <Image width={200} height={200} src="https://i.ibb.co/ck1SGFJ/Group.png" alt=''/>
       </div>
     </div>
+    </main>
   )
 }

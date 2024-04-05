@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function PolicyPage() {
   return (
-    <main className='h-screen bg-[whitesmoke] flex justify-center items-center'>
+    <main className='h-screen bg-[whitesmoke] flex justify-center items-center py-7'>
       <div className='max-w-lg p-8 bg-white rounded-md shadow-sm'>
         <h1 className='text-3xl font-bold mb-4'>Policy Page</h1>
         <p className='text-lg'>

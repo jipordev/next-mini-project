@@ -1,8 +1,11 @@
+import FormCreateProduct from '@/components/forms/FormCreateProduct'
 import React from 'react'
 
 export default function page() {
   return (
-    <div>This is create form</div>
+    <div>
+      <FormCreateProduct/>
+    </div>
   )
 }
 

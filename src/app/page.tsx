@@ -50,6 +50,7 @@ const products = await fetchData();
                       price={product.price}
                       image={product.image}
                       desc={product.desc}
+                      quantity={product.quantity}
                     />
                   </Link>)
               })

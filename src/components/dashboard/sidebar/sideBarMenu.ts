@@ -1,25 +1,26 @@
 import path from 'path';
 import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser, HiViewBoards } from 'react-icons/hi';
+import Link from 'next/link';
 
 export const sideBarItem = [
     {
         title: "Dashboard",
-        path: "/dasboard",
+        href: "/dashboard",
         icon: HiArrowSmRight
     },
     {
         title: "Create Product",
-        path: "/dasboard/create",
+        path: "/dashboard/create",
         icon: HiChartPie
     },
     {
         title: "Update Product",
-        path: "/dasboard/update",
+        path: "/dashboard/update",
         icon: HiChartPie
     },
     {
         title: "Setting",
-        path: "/dasboard/setting",
+        path: "/dashboard/setting",
         icon: HiViewBoards
     },
 ]

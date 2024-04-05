@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaCartPlus } from "react-icons/fa6";
 import Image from "next/image";
+import { NavbarItem } from "@nextui-org/react";
 
 function NavBarComponent() {
 
@@ -13,7 +14,7 @@ function NavBarComponent() {
   return (
     <Navbar className="bg-gray-50">
       <Navbar.Brand href="/">
-        <Image src="https://store.istad.co/media/brand_images/mainLogo.png" className="mr-3 w-14 h-12 rounded-[50%]" alt="Flowbite React Logo" />
+        <Image width={80} height={60} src=" https://store.istad.co/media/brand_images/mainLogo.png" className="w-16 h-14 mr-3 rounded-[50%]" alt="" />
         <span className="self-center whitespace-nowrap text-[20px] font-semibold dark:text-white">Chh1p Shop</span>
       </Navbar.Brand>
       <div className="flex md:order-2 items-center">
