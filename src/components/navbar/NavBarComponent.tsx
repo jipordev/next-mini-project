@@ -11,13 +11,13 @@ function NavBarComponent() {
 
   return (
     <Navbar className="bg-gray-50">
-      <Navbar.Brand href="https://flowbite-react.com">
-        <img src="https://api.istad.co/media/image/c8c41751-3bc0-4f07-9658-7d95efbae692.png" className="mr-3 h-6 sm:h-9" alt="Flowbite React Logo" />
+      <Navbar.Brand href="/">
+        <img src="https://store.istad.co/media/brand_images/mainLogo.png" className="mr-3 w-14 h-12 rounded-[50%]" alt="Flowbite React Logo" />
         <span className="self-center whitespace-nowrap text-[20px] font-semibold dark:text-white">Chh1p Shop</span>
       </Navbar.Brand>
       <div className="flex md:order-2 items-center">
         <span className=" mr-3 sm:mr-5 md:mr-7"><FaCartPlus color="#34416A" className="size-6" size={26}/></span>
-        <button className="font-semibold text-gray-100 px-4 py-2 rounded-xl bg-[#ff8b00] hover:bg-[#ff8c00da]" onClick={()=> route.push("/dashboard")}>Dashboard</button>
+        <button className="sm:p-2 md:p-3 font-semibold text-gray-50 px-4 py-2 rounded-xl bg-[#ff8b00] hover:text-white hover:bg-[#ff8c00da]" onClick={()=> route.push("/dashboard")}>Dashboard</button>
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>

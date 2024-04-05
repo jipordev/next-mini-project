@@ -1,8 +1,8 @@
 import { ProductType } from "../types/ProductType";
 
-function ProductCard({name, price, image}:ProductType) {
+function ProductCard({name, price, image, desc}:ProductType) {
   return (
-    <div
+    <div 
       className="max-w-sm bg-[#ffffff] shadow-sm rounded-md flex flex-col justify-between"
     >
       <div className="lg:h-56 overflow-hidden">
@@ -53,11 +53,7 @@ function ProductCard({name, price, image}:ProductType) {
       </div>
       <div className="md:flex-col lg:flex-row flex items-center justify-between">
         <span className="text-xl md:text-xl lg:text-2xl font-semibold text-[#ff0000] dark:text-white">${price}</span>
-        <div
-          className="md:my-1 md:text-[12px] md:p-2 rounded-lg bg-[#ff8b00] px-4 py-3 text-center text-sm font-semibold text-white hover:bg-[#ff8c00da] focus:outline-none focus:ring-4 dark:bg-[#ff8c00] dark:hover:bg-[#ff8c00da]"
-        >
-          Add to cart
-        </div>
+        <button className="text-[14px] sm:p-2 md:p-3 font-semibold text-gray-50 px-4 py-2 rounded-xl bg-[#ff8b00] hover:text-white hover:bg-[#ff8c00da]">Add to cart</button>
       </div>
       </div>
     </div>

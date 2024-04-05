@@ -9,13 +9,9 @@ function FooterComponent() {
     <Footer container className="rounded-none bg-gray-50">
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1 ">
-          <div>
-            <Footer.Brand
-              href="https://flowbite.com"
-              src="https://api.istad.co/media/image/c8c41751-3bc0-4f07-9658-7d95efbae692.png"
-              alt="Flowbite Logo"
-              name="Spring Shop"
-            />
+          <div className="flex items-center">
+             <img  className="w-16 h-14 rounded-[50%]" src="https://store.istad.co/media/brand_images/mainLogo.png"/>
+             <span className="ml-3 self-center whitespace-nowrap text-[20px] font-semibold dark:text-white">Chh1p Shop</span>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">
             <div>
@@ -43,8 +39,8 @@ function FooterComponent() {
         </div>
         <Footer.Divider />
         <div className="w-full sm:flex sm:items-center sm:justify-between">
-          <Footer.Copyright href="#" by="Flowbite™" year={2022} />
-          <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
+          <Footer.Copyright href="https://store.istad.co/media/brand_images/mainLogo.png" by="Chh1p" year={2024} />
+          <div className="mt-4 flex space-x-6 sm:mt-store-0 sm:justify-center">
             <Footer.Icon href="#" icon={BsFacebook} />
             <Footer.Icon href="#" icon={BsInstagram} />
             <Footer.Icon href="#" icon={BsTwitter} />

@@ -13,8 +13,8 @@ export const sideBarItem = [
         icon: HiChartPie
     },
     {
-        title: "Account",
-        path: "/dasboard/account",
+        title: "Update Product",
+        path: "/dasboard/update",
         icon: HiChartPie
     },
     {

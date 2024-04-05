@@ -17,17 +17,11 @@ import { IoEllipsisHorizontal } from "react-icons/io5";
 import Image from "next/image";
 import { BASE_API_URL } from "../../../lib/constants";
 
-type DataRow = {
-  title: string;
-  director: string;
-  year: string;
-};
-
 const customStyles = {
   rows: {
     style: {
-      // minWidth: "1000px",
-      minHeight: "72px", // override the row height
+      minWidth: "1000px",
+      minHeight: "72px", // override the row he heiight
     },
   },
   headCells: {
@@ -99,7 +93,7 @@ const ProductTable = () => {
               <DropdownMenu aria-label="Static Actions">
                 <DropdownItem
                   key="detail"
-                  onClick={()=> handleDetail(row)}
+                  onPress={()=> handleDetail(row)}
                 >
                   View Detail
                 </DropdownItem>
@@ -163,7 +157,7 @@ const ProductTable = () => {
                 <p>
                   {productDetail.price}
                 </p>
-                <Image src={productDetail.image} width={100} height={100} alt="" />
+                <Image src={productDetail.image} width={100} height={100} alt="product" />
               
               </ModalBody>
             </>
