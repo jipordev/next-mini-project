@@ -3,8 +3,6 @@
 import ProductCard from "@/components/card/ProductCardComponent";
 import { ProductType } from "@/components/types/ProductType";
 import { Suspense, useEffect, useState } from "react";
-import LoadingComponent from "./loading";
-import BannerComponent from "@/components/images/Banner";
 import { BASE_API_URL } from "../../lib/constants";
 import HeroSectionComponent from "@/components/hero-section/HeroSectionComponent";
 
@@ -31,7 +29,7 @@ export default function Home() {
       <main className="bg-[whitesmoke]">
         <HeroSectionComponent/>
         <h1 className="mt-[70px] font-normal text-center mb-10 text-3xl">Our Products</h1>
-        <section className="container-sm mx-[100px] grid grid-cols-4 gap-7 mb-12">
+        <section className="container-sm mx-12 sm:mx-[80px] md:mx-[100px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 mb-12">
             {
               products.map((product:ProductType) => (
                 <ProductCard

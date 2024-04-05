@@ -52,11 +52,16 @@ const ProductTable = () => {
   const [filter, setFilter] = useState([]);
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const [productDetail, setProductDetail] = useState({} as ProductType)
+  const [borderColor, setBorderColor] = useState("#ff8b00")
 
-  function handleDetail(value: ProductType) {
+  const handleDetail = (value: ProductType) => {
     onOpen();
     setProductDetail(value)
     
+  }
+  const handleInputChange = (e:any) => {
+    setSearch(e.target.value);
+    setBorderColor('#00ff00'); 
   }
 
   const columnsData: TableColumn<ProductType>[] = [
@@ -65,17 +70,14 @@ const ProductTable = () => {
       selector: (row): any => (
         <div className=" font-bold text-blue-600">{row.id}</div>
       ),
-      sortable: true,
     },
     {
       name: "Name",
       selector: (row) => row.name,
-      sortable: true,
     },
     {
       name: "Price",
       selector: (row) => row.price,
-      sortable: true,
     },
     {
       name: "Image",
@@ -87,8 +89,8 @@ const ProductTable = () => {
       name: "Action",
       cell: (row) => {
         return (
-          <div className="bg-[whitesmoke]">
-            <Dropdown>
+          <div className="rounded-[50%] bg-gray-50 w-max p-2">
+            <Dropdown >
               <DropdownTrigger>
                 <button>
                   <IoEllipsisHorizontal />
@@ -161,14 +163,13 @@ const ProductTable = () => {
                 <p>
                   {productDetail.price}
                 </p>
-                <Image src={productDetail.image} width={100} height={100} alt="user" />
+                <Image src={productDetail.image} width={100} height={100} alt="" />
               
               </ModalBody>
             </>
           )}
         </ModalContent>
       </Modal>
-   
 
       <DataTable
         progressPending={isLoading}
@@ -181,10 +182,11 @@ const ProductTable = () => {
         // customStyles={customStyles}
         subHeaderComponent={
           <input
-            className="border-[1px] px-4 py-2 w-full rounded-md border-blue-400"
+            className="bg-white border-[1px] px-9 py-2 w-max rounded-md"
+            style={{ borderColor: borderColor }}
             placeholder="Search"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={handleInputChange}
           ></input>
         }
         paginationComponentOptions={paginationComponentOptions}
@@ -192,11 +194,11 @@ const ProductTable = () => {
         progressComponent={<LoadingComponent />}
         customStyles={customStyles}
         data={filter}
-        actions={
-          <Button size="sm" color="primary">
-            Export PDF
-          </Button>
-        }
+        // actions={
+        //   <Button size="sm" color="primary">
+        //     Export PDF
+        //   </Button>
+        // }
       />
     </div>
   );

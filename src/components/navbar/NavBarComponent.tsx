@@ -16,7 +16,7 @@ function NavBarComponent() {
         <span className="self-center whitespace-nowrap text-[20px] font-semibold dark:text-white">Chh1p Shop</span>
       </Navbar.Brand>
       <div className="flex md:order-2 items-center">
-        <span className="mr-7"><FaCartPlus color="#34416A" size={26}/></span>
+        <span className=" mr-3 sm:mr-5 md:mr-7"><FaCartPlus color="#34416A" className="size-6" size={26}/></span>
         <button className="font-semibold text-gray-100 px-4 py-2 rounded-xl bg-[#ff8b00] hover:bg-[#ff8c00da]" onClick={()=> route.push("/dashboard")}>Dashboard</button>
         <Navbar.Toggle />
       </div>

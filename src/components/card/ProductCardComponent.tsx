@@ -1,4 +1,3 @@
-import { Card } from "flowbite-react";
 import { ProductType } from "../types/ProductType";
 
 function ProductCard({name, price, image}:ProductType) {
@@ -6,12 +5,12 @@ function ProductCard({name, price, image}:ProductType) {
     <div
       className="max-w-sm bg-[#ffffff] shadow-sm rounded-md flex flex-col justify-between"
     >
-      <div className="h-56 overflow-hidden">
-       <img src={image} className="w-full h-auto object-cover rounded-md"/>
+      <div className="lg:h-56 overflow-hidden">
+       <img src={image} className="w-full md:h-44 h-full object-cover rounded-t-md"/>
       </div>
-      <div className="p-6">
+      <div className="p-4 sm:p-4 md:p-4 lg:p-6">
       <div>
-        <h5 className="text-xl font-semibold tracking-tight text-[#34416A] dark:text-white">
+        <h5 className=" lg:text-xl font-semibold tracking-tight text-[#34416A] dark:text-white">
           {name}
         </h5>
       </div>
@@ -52,10 +51,10 @@ function ProductCard({name, price, image}:ProductType) {
           5.0
         </span>
       </div>
-      <div className="flex items-center justify-between">
-        <span className="text-2xl font-semibold text-[#ff0000] dark:text-white">${price}</span>
+      <div className="md:flex-col lg:flex-row flex items-center justify-between">
+        <span className="text-xl md:text-xl lg:text-2xl font-semibold text-[#ff0000] dark:text-white">${price}</span>
         <div
-          className="rounded-lg bg-[#ff8b00] px-4 py-3 text-center text-sm font-semibold text-white hover:bg-[#ff8c00da] focus:outline-none focus:ring-4 dark:bg-[#ff8c00] dark:hover:bg-[#ff8c00da]"
+          className="md:my-1 md:text-[12px] md:p-2 rounded-lg bg-[#ff8b00] px-4 py-3 text-center text-sm font-semibold text-white hover:bg-[#ff8c00da] focus:outline-none focus:ring-4 dark:bg-[#ff8c00] dark:hover:bg-[#ff8c00da]"
         >
           Add to cart
         </div>
