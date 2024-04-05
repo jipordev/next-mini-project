@@ -11,17 +11,7 @@ async function getDetail(id:number) {
     return data.json()
   }
 
-// export async function generateMetadata({params} : ParamProps){
-//   const id = params.id
-//   const product = await getDetail(id)
-//   return {
-//     title: product?.title,
-//     describe: product.description,
-//     openGraph: {
-//       images: product.thumbnail,
-//     },
-//   }
-// }
+  
 
 async function page({ params }: ParamProps) {
   const id = params.id;

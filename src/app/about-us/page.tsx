@@ -4,7 +4,7 @@ export default function AboutUsPage() {
   return (
     <div className="h-screen grid bg-[whitesmoke] py-7">
       <p className="m-auto">
-        <div className="flex flex-col gap-3 bg-gray-200 mx-auto w-4/5 p-7 rounded-lg">
+        <div className="flex flex-col gap-3 bg-white mx-auto w-4/5 p-7 rounded-lg shadow-sm">
           <h1 className="text-3xl font-bold">About Us</h1>
           <p>Welcome to Chh1p!</p>
           <h1 className="text-xl font-bold">Our Mission</h1>
