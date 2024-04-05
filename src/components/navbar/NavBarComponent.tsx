@@ -4,6 +4,7 @@ import { Button, Navbar } from "flowbite-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FaCartPlus } from "react-icons/fa6";
+import Image from "next/image";
 
 function NavBarComponent() {
 
@@ -12,7 +13,7 @@ function NavBarComponent() {
   return (
     <Navbar className="bg-gray-50">
       <Navbar.Brand href="/">
-        <img src="https://store.istad.co/media/brand_images/mainLogo.png" className="mr-3 w-14 h-12 rounded-[50%]" alt="Flowbite React Logo" />
+        <Image src="https://store.istad.co/media/brand_images/mainLogo.png" className="mr-3 w-14 h-12 rounded-[50%]" alt="Flowbite React Logo" />
         <span className="self-center whitespace-nowrap text-[20px] font-semibold dark:text-white">Chh1p Shop</span>
       </Navbar.Brand>
       <div className="flex md:order-2 items-center">
