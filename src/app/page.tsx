@@ -39,20 +39,19 @@ export default function ProductPage() {
       <HeroSectionComponent />
       <h1 className="mt-[70px] font-normal text-center mb-10 text-3xl">Our Products</h1>
       <section className="container-sm mx-12 md:mx-[70px] lg:mx-[100px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 mb-12">
-        {products.map((product: ProductType) => (
-          <Suspense fallback={<LoadingComponent/>}>
-            <Link href={`/${product.id}`}>
-            <ProductCard
-             key={product.id}
-              name={product.name}
-              price={product.price}
-              image={product.image}
-              desc={product.desc}
-              quantity={product.quantity}
-            />
-          </Link>
-          </Suspense>
-        ))}
+        <Suspense fallback={<LoadingComponent/>}>
+          {products.map((product: ProductType) => (
+            <Link href={`/${product.id}`} key={product.id}>
+              <ProductCard
+                name={product.name}
+                price={product.price}
+                image={product.image}
+                desc={product.desc}
+                quantity={product.quantity}
+              />
+            </Link>
+          ))}
+        </Suspense>
       </section>
     </main>
   );
