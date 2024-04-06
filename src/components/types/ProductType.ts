@@ -1,6 +1,6 @@
 export type ProductType = {
 
-    id?:number | undefined,
+    id?:number,
     name:string,
     image:string,
     desc:string,

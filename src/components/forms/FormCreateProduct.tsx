@@ -34,11 +34,11 @@ const FormCreateProduct = () => {
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append(
     "Authorization",
-    "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NTM2OTE4LCJpYXQiOjE3MTIzNzY5MTgsImp0aSI6ImNiMWJkYjIxYjA1MDQ1MjdiYjVmODFjN2Q3MTg3YmQ1IiwidXNlcl9pZCI6MTd9.y_YHYM6GmJbvQO18Q2gvxThsbJBHX_NKuWZakaYMakc"
+    "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NTcxNTA0LCJpYXQiOjE3MTI0MTE1MDQsImp0aSI6ImI0NTk4ZDZhYWNiOTRkYjI5MDgzOWY4ZTc2YmRjMmQ4IiwidXNlcl9pZCI6MTd9.hiYI2VHSW4jPLhpbs-taPzRNq8y4PjGSczRJ1IzAVqQ"
   );
   myHeaders.append(
     "Cookie",
-    "csrftoken=UAYed23r5rTjUCeXkEop4Gqm307LAmptTfutJUnTm9l6N2Yg8m6XaSoDNSZE1tUe; sessionid=h5lwc3eior26qlvkl8q8a43y6bxopu0q"
+    "csrftoken=Zm03ZD9fbF8GbA673i7aRMtsUieICS7PVAlCvvtG0isnC4uHXmsjoEeejT7RG1Ab; sessionid=6c3q0xwc56m9r87el38wicfiqr3mj9u1;"
   );
   const handleSubmitToServer = async (values: any) => {
     
@@ -73,7 +73,7 @@ const FormCreateProduct = () => {
   };
 
   return (
-    <div className="w-full pt-9">
+    <div className="w-max pt-9 mx-auto">
       <Formik
         onSubmit={(values: any, { setSubmitting, resetForm }) => {
           console.log(values);
