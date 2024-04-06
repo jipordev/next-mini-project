@@ -1,11 +1,12 @@
 import { Card } from "flowbite-react";
 import { ProductType } from "../types/ProductType";
 import Image from "next/image";
+import styles from './ProductCard.module.css';
 
 function ProductCard({name, price, image, desc, quantity}:ProductType) {
   return (
     <div 
-      className="max-w-sm bg-[#ffffff] shadow-sm rounded-md flex flex-col justify-between"
+      className={`${styles.productCard} max-w-sm bg-[#ffffff] shadow-sm rounded-md flex flex-col justify-between`}
     >
       <div className="lg:h-56 overflow-hidden">
        <Image width={1000} height={1000} src={image} className="w-full h-full object-cover shadow-sm rounded-t-md" alt={""}/>
