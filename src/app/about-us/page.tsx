@@ -1,5 +1,11 @@
 import React from "react";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "AboutUs",
+  description: "This is about us page",
+  keywords: ['shop', 'ecommerce', 'sell']
+};
 export default function AboutUsPage() {
   return (
     <main className="bg-[whitesmoke] ">

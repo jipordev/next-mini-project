@@ -1,5 +1,12 @@
 import ProductTable from "@/components/table/ProductTable";
 import React from "react";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "This is dashboard page",
+  keywords: ['shop', 'ecommerce', 'sell']
+};
 
 const page = () => {
   return (

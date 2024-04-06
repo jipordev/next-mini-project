@@ -112,18 +112,24 @@ const ProductTable = () => {
                 </button>
               </DropdownTrigger>
               <DropdownMenu aria-label="Static Actions">
+
               <DropdownItem
+                className="w-max hover:rounded-xl font-bold text-green-400 hover:bg-green-400 hover:font-bold hover:text-white"
                 key="detail"
-                onClick={() => handleDetail(row)}
+                onClick={() => route.push(`/${row.id}`)}
               >
                 View Detail
               </DropdownItem>
 
+                <DropdownItem key="edit" onClick={() => route.push("/dashboard/update")}
+                className="w-max hover:rounded-xl font-bold text-yellow-400 hover:bg-yellow-400 hover:font-bold hover:text-white"
+                >
+                  Edit
+                  </DropdownItem>
 
-                <DropdownItem key="edit" onClick={() => route.push("/dashboard/update")}>Edit</DropdownItem>
                 <DropdownItem
                   key="delete"
-                  className="text-danger"
+                  className="w-max hover:rounded-xl font-bold text-red-400 hover:bg-red-400 hover:font-bold hover:text-white"
                   color="danger"
                   onClick={() => row.id && handleDelete(row.id)}
                 >

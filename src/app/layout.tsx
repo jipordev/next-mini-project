@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     },
     description: "This is Chh1p products shop",
     images:[
-      "https://i.natgeofe.com/n/4f5aaece-3300-41a4-b2a8-ed2708a0a27c/domestic-dog_thumb_square.jpg"
+      "https://t4.ftcdn.net/jpg/02/50/31/83/360_F_250318394_Sv5grwCptbMlak5Rp4PtiDCsb6HYOUzg.jpg"
     ]
   }
 };

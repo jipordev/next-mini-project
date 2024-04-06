@@ -1,8 +1,9 @@
-'use client'
+
 import React from 'react'
 import { BASE_API_URL } from '../../../lib/constants'
 import Image from 'next/image'
 import Link from 'next/link'
+import { image } from '@nextui-org/react'
 
 
 export type ParamProps = {
@@ -16,9 +17,21 @@ async function getDetail(id:number) {
     return data.json()
   }
 
+  export async function generateMetadata({params} : ParamProps){
+    const id = params.id
+    const product = await getDetail(id)
+    return {
+      title: product?.name,
+      describe: product.description,
+      openGraph: {
+        image: product.thumbnail,
+      },
+    }
+  }
+
   
 
-async function page({ params }: ParamProps) {
+async function DetailPage({ params }: ParamProps) {
   const id = params.id;
   const productDetail = await getDetail(id)
   
@@ -51,4 +64,4 @@ async function page({ params }: ParamProps) {
   )
 }
 
-export default page
+export default DetailPage

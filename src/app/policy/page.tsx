@@ -1,6 +1,13 @@
 // pages/policy.js
 
 import PolicyCard from "@/components/card/PolicyCardComponent";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Policy",
+  description: "This is policy page",
+  keywords: ['shop', 'ecommerce', 'sell']
+};
 
 const PolicyPage = () => {
   return (
