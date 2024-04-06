@@ -1,7 +1,7 @@
 import FormUpdateProduct from '@/components/forms/FormUpdateProduct'
-import React from 'react'
+import React from 'react';
 
-export default function () {
+export default function page () {
   return (
     <div>
       <FormUpdateProduct/>
