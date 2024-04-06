@@ -10,7 +10,7 @@ function FooterComponent() {
       <div className="w-full">
         <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1 ">
           <div className="flex items-center">
-             <Footer.Brand className="w-16 h-14 rounded-[50%]" src="https://store.istad.co/media/brand_images/mainLogo.png"/>
+             <Footer.Brand className="w-[60px] h-[60px] rounded-[50%]" src="https://store.istad.co/media/product_images/logo.png"/>
              <span className="ml-3 self-center whitespace-nowrap text-[20px] font-semibold dark:text-white">Chh1p Shop</span>
           </div>
           <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6">

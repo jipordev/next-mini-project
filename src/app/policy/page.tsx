@@ -1,21 +1,26 @@
-import React from 'react';
+// pages/policy.js
 
-export default function PolicyPage() {
+import PolicyCard from "@/components/card/PolicyCardComponent";
+
+const PolicyPage = () => {
   return (
-    <main className='h-screen bg-[whitesmoke] flex justify-center items-center py-7'>
-      <div className='max-w-lg p-8 bg-white rounded-md shadow-sm'>
-        <h1 className='text-3xl font-bold mb-4'>Policy Page</h1>
-        <p className='text-lg'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla fermentum nisi vel neque dictum,
-          at vehicula dui finibus. Sed eget odio vitae nulla rutrum scelerisque.
-          Nullam consectetur mi eu quam aliquet, at aliquam elit lobortis.
-        </p>
-        <p className='text-lg mt-4'>
-          Fusce sit amet libero commodo, tincidunt orci et, lacinia libero.
-          Duis non nisi vel libero efficitur consequat. Suspendisse malesuada,
-          dolor a egestas aliquam, ex risus tempus libero, non scelerisque leo nunc vitae dui.
-        </p>
-      </div>
+    <main className="h-screen bg-whitesmoke gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-center container-sm mx-auto">
+        <PolicyCard 
+          title="Terms of Service" 
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero at felis tempus tempor. Fusce in enim magna."
+        />
+        
+        {/* Add more PolicyCard components as needed */}
+        <PolicyCard 
+          title="Refund Policy" 
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero at felis tempus tempor. Fusce in enim magna."
+        />
+        <PolicyCard 
+          title="Shipping Policy" 
+          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero at felis tempus tempor. Fusce in enim magna."
+        />
     </main>
   );
-}
+};
+
+export default PolicyPage;

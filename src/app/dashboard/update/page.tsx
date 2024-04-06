@@ -1,10 +1,10 @@
 import FormUpdateProduct from '@/components/forms/FormUpdateProduct'
 import React from 'react'
 
-export default function page() {
+export default function () {
   return (
     <div>
-        <FormUpdateProduct name={''} image={''} desc={''} quantity={0}/>
+      <FormUpdateProduct/>
     </div>
   )
 }

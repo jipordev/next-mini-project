@@ -1,6 +1,10 @@
+'use client'
 import React from 'react'
 import { BASE_API_URL } from '../../../lib/constants'
 import Image from 'next/image'
+import Link from 'next/link'
+
+
 export type ParamProps = {
     params: {
       id: number
@@ -22,7 +26,7 @@ async function page({ params }: ParamProps) {
     <main className='bg-[whitesmoke]'>
       <section className='grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-2 container-sm mx-[20px] sm:mx-[50px] md:mx-[80px] lg:mx-[150px] my-12'>
        <div className='w-[350px] mx-auto sm:w-[300px] md:w-[400px] lg:w-[500px] h-auto'>
-        <Image className='rounded-md shadow-md' src={productDetail.image} alt="" />
+        <Image width={1000} height={1000} className='rounded-md shadow-md' src={productDetail.image} alt="" />
        </div>
        <div className='p-2'>
         <h1 className='text-[24px] font-medium mb-3'
@@ -37,6 +41,10 @@ async function page({ params }: ParamProps) {
           </span>
         </div>
         
+        <p className="my-7 font-normal text-[#ff8b00] hover:underline hover:underline-offset-4">
+        <Link href={"/"}> Back to home page </Link>
+          </p>
+
        </div>
     </section>
     </main>

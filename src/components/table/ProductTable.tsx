@@ -3,6 +3,7 @@ import LoadingComponent from "@/app/loading";
 import { ProductType } from "../types/ProductType";
 import { Input } from "@nextui-org/react";
 import React from "react";
+import { useRouter } from "next/navigation";
 import {
   Dropdown,
   DropdownTrigger,
@@ -16,23 +17,24 @@ import DataTable, { TableColumn } from "react-data-table-component";
 import { IoEllipsisHorizontal } from "react-icons/io5";
 import Image from "next/image";
 import { BASE_API_URL } from "../../../lib/constants";
+import { on } from "events";
 
 const customStyles = {
   rows: {
     style: {
       minWidth: "1000px",
-      minHeight: "72px", // override the row he heiight
+      minHeight: "72px", 
     },
   },
   headCells: {
     style: {
-      paddingLeft: "8px", // override the cell padding for head cells
+      paddingLeft: "8px",
       paddingRight: "8px",
     },
   },
   cells: {
     style: {
-      paddingLeft: "8px", // override the cell padding for data cells
+      paddingLeft: "8px",
       paddingRight: "8px",
     },
   },
@@ -49,7 +51,7 @@ const ProductTable = () => {
   const [borderColor, setBorderColor] = useState("#ff8b00")
 
   const handleDetail = (value: ProductType) => {
-    onOpen();
+    onOpen()
     setProductDetail(value)
     
   }
@@ -57,6 +59,25 @@ const ProductTable = () => {
     setSearch(e.target.value);
     setBorderColor('#00ff00'); 
   }
+  const handleDelete = async (productId:number) => {
+    try {
+      const response = await fetch(`${BASE_API_URL}products/${productId}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NTM2OTE4LCJpYXQiOjE3MTIzNzY5MTgsImp0aSI6ImNiMWJkYjIxYjA1MDQ1MjdiYjVmODFjN2Q3MTg3YmQ1IiwidXNlcl9pZCI6MTd9.y_YHYM6GmJbvQO18Q2gvxThsbJBHX_NKuWZakaYMakc', // Replace with your actual token
+          'Cookie': 'csrftoken=your_csrf_token_here; sessionid=your_session_id_here',
+        },
+      });
+      const data = await response.json();
+      console.log('Deleted product:', data);
+    } catch (error) {
+      console.error('Error deleting product:', error);
+    }
+  };
+
+
+  const route = useRouter()
 
   const columnsData: TableColumn<ProductType>[] = [
     {
@@ -91,21 +112,24 @@ const ProductTable = () => {
                 </button>
               </DropdownTrigger>
               <DropdownMenu aria-label="Static Actions">
-                <DropdownItem
-                  key="detail"
-                  onPress={()=> handleDetail(row)}
-                >
-                  View Detail
-                </DropdownItem>
+              <DropdownItem
+                key="detail"
+                onClick={() => handleDetail(row)}
+              >
+                View Detail
+              </DropdownItem>
 
-                <DropdownItem key="edit">Edit</DropdownItem>
+
+                <DropdownItem key="edit" onClick={() => route.push("/dashboard/update")}>Edit</DropdownItem>
                 <DropdownItem
                   key="delete"
                   className="text-danger"
                   color="danger"
+                  onClick={() => row.id && handleDelete(row.id)}
                 >
                   Delete
                 </DropdownItem>
+
               </DropdownMenu>
             </Dropdown>
           </div>
@@ -144,6 +168,7 @@ const ProductTable = () => {
     selectAllRowsItemText: "ទាំងអស់",
   };
 
+
   return (
     <div className="w-full">
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
@@ -156,9 +181,12 @@ const ProductTable = () => {
                   {productDetail.name}
                 </p>
                 <p>
+                  {productDetail.desc}
+                </p>
+                <p>
                   {productDetail.price}
                 </p>
-                <Image src={productDetail.image} width={100} height={100} alt="product" />
+                <Image src={productDetail.image} width={100} height={100} alt="user" />
               
               </ModalBody>
             </>

@@ -1,13 +1,13 @@
 "use client";
-import { Formik, Form, Field, ErrorMessage } from "formik";
-import React, { useState } from "react";
-import * as Yup from "yup"
-import Image from "next/image";
-import axios  from 'axios';
-import { BASE_API_URL } from "../../../lib/constants";
-import { ProductType } from "../types/ProductType";
+import React from 'react'
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from "yup";
+import Image from 'next/image';
+import { BASE_API_URL } from '../../../lib/constants';
+import axios from 'axios';
+import { useState } from 'react';
 
-const FILE_SIZE = 1024 * 1024 * 5; 
+const FILE_SIZE = 1024 * 1024 * 5; // mean can store 5MB only
 const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/png", "image/gif"];
 
 const validationSchema = Yup.object().shape({
@@ -29,21 +29,21 @@ const validationSchema = Yup.object().shape({
 
 const fieldStyle = "border border-gray-300 rounded-md";
 
-const FormUpdateProduct = (Pro:ProductType) => {
+const FormUpdateProduct = () => {
   const myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append(
     "Authorization",
-    "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0MjA1ODA1LCJpYXQiOjE3MTIwNDU3NzIsImp0aSI6ImViMDIzOGQ2NjIxYTQ3MWY4NGVkMTE1NTc1ZmRlMmQ3IiwidXNlcl9pZCI6MzV9.fS3bigIdku92aMlx0_eIzbW_4cIlz8u9lTo8JIDxUos"
+    "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NTM2OTE4LCJpYXQiOjE3MTIzNzY5MTgsImp0aSI6ImNiMWJkYjIxYjA1MDQ1MjdiYjVmODFjN2Q3MTg3YmQ1IiwidXNlcl9pZCI6MTd9.y_YHYM6GmJbvQO18Q2gvxThsbJBHX_NKuWZakaYMakc"
   );
   myHeaders.append(
     "Cookie",
-    "csrftoken=oj4kVPKicYgWw6ppqnUlkxbsIjARq6gYbmJKhxl3GEoArkenGSgwfUb4T9UGl8VJ; sessionid=e2k7ty0e7g6wbreo2q0wq5d6tj92t2cc"
+    "csrftoken=UAYed23r5rTjUCeXkEop4Gqm307LAmptTfutJUnTm9l6N2Yg8m6XaSoDNSZE1tUe; sessionid=h5lwc3eior26qlvkl8q8a43y6bxopu0q"
   );
-
   const handleSubmitToServer = async (values: any) => {
-    // axios is used to make HTTP requests to the server
+    
     try {
+      // axios is used to make HTTP requests to the server like the fetchData
       const response = await axios.post(
         `${BASE_API_URL}file/product/`,
         values.image
@@ -58,8 +58,8 @@ const FormUpdateProduct = (Pro:ProductType) => {
     try {
       const imageUrl = await handleSubmitToServer(imageData);
       console.log("data: ", values);
-      const postData = await fetch(`${BASE_API_URL}products/${Pro.id}`, {
-        method: "PUT",
+      const postData = await fetch(`${BASE_API_URL}products/`, {
+        method: "POST",
         headers: myHeaders,
         body: JSON.stringify({
           ...values,
@@ -103,7 +103,7 @@ const FormUpdateProduct = (Pro:ProductType) => {
             <div className="flex flex-col gap-2">
               <label htmlFor="name">Product Name: </label>
               <Field
-                placeholder={Pro.name}
+                placeholder="T-shirt"
                 className={fieldStyle}
                 name="name"
                 type="text"
@@ -116,7 +116,7 @@ const FormUpdateProduct = (Pro:ProductType) => {
             <div className="flex flex-col gap-2">
               <label htmlFor="desc">Description: </label>
               <Field
-                placeholder={Pro.desc}
+                placeholder="This is a t-shirt"
                 className={fieldStyle}
                 name="desc"
                 type="text"
@@ -129,7 +129,7 @@ const FormUpdateProduct = (Pro:ProductType) => {
             <div className="flex flex-col gap-2">
               <label htmlFor="price">Price: </label>
               <Field
-                placeholder={Pro.price}
+                placeholder="100"
                 className={fieldStyle}
                 name="price"
                 type="number"
@@ -142,7 +142,7 @@ const FormUpdateProduct = (Pro:ProductType) => {
             <div className="flex flex-col gap-2">
               <label htmlFor="price">Quantity: </label>
               <Field
-                placeholder={Pro.quantity}
+                placeholder="1"
                 className={fieldStyle}
                 name="quantity"
                 type="number"
@@ -166,13 +166,13 @@ const FormUpdateProduct = (Pro:ProductType) => {
                 </ErrorMessage>
               </div>
             </div>
-            <div className="ml-auto">
+            <div className='ml-auto'>
               <button
                 type="submit"
-                className="w-full px-4 py-3 bg-[#ff8b00] text-white rounded-lg"
+                className="w-max px-4 py-3 bg-[#ff8b00] text-white rounded-lg"
                 disabled={isSubmitting}
               >
-               Update
+                Create
               </button>
             </div>
           </Form>
