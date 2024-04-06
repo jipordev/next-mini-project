@@ -1,72 +1,48 @@
-"use client";
+"use client"
+
 import LoadingComponent from "@/app/loading";
-import { ProductType } from "../types/ProductType";
-import { Input } from "@nextui-org/react";
-import React from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import DataTable, { TableColumn } from "react-data-table-component"
 import {
   Dropdown,
   DropdownTrigger,
   DropdownMenu,
-  DropdownItem,
-  Button,
+  DropdownItem
 } from "@nextui-org/react";
-import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure} from "@nextui-org/react";
-import { useState, useEffect } from "react";
-import DataTable, { TableColumn } from "react-data-table-component";
-import { IoEllipsisHorizontal } from "react-icons/io5";
 import Image from "next/image";
-import { BASE_API_URL } from "../../../lib/constants";
-import { on } from "events";
-
-const customStyles = {
-  rows: {
-    style: {
-      minWidth: "1000px",
-      minHeight: "72px", 
-    },
-  },
-  headCells: {
-    style: {
-      paddingLeft: "8px",
-      paddingRight: "8px",
-    },
-  },
-  cells: {
-    style: {
-      paddingLeft: "8px",
-      paddingRight: "8px",
-    },
-  },
-};
+import { IoEllipsisHorizontal } from "react-icons/io5";
+import { ProductType } from "../types/ProductType";
+import { useDisclosure } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 
-const ProductTable = () => {
-  const [getProduct, setProduct] = useState([]);
+const BASE_URL = "https://store.istad.co/api/products/"
+
+export default function ProductTable() {
+  const [getData, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState([]);
-  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+  const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [productDetail, setProductDetail] = useState({} as ProductType)
-  const [borderColor, setBorderColor] = useState("#ff8b00")
+  const [borderColor, setBorderColor] = useState("#ff8b00");
 
   const handleDetail = (value: ProductType) => {
-    onOpen()
+    onOpen();
     setProductDetail(value)
-    
   }
-  const handleInputChange = (e:any) => {
+  const handleInputChange = (e: any) => {
     setSearch(e.target.value);
-    setBorderColor('#00ff00'); 
+    setBorderColor('#00ff00');
   }
-  const handleDelete = async (productId:number) => {
+  const handleDelete = async (productId: number) => {
     try {
-      const response = await fetch(`${BASE_API_URL}products/${productId}`, {
+      const response = await fetch(`${BASE_URL}${productId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NTM2OTE4LCJpYXQiOjE3MTIzNzY5MTgsImp0aSI6ImNiMWJkYjIxYjA1MDQ1MjdiYjVmODFjN2Q3MTg3YmQ1IiwidXNlcl9pZCI6MTd9.y_YHYM6GmJbvQO18Q2gvxThsbJBHX_NKuWZakaYMakc', // Replace with your actual token
-          'Cookie': 'csrftoken=your_csrf_token_here; sessionid=your_session_id_here',
+          'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NTM2OTE4LCJpYXQiOjE3MTIzNzY5MTgsImp0aSI6ImNiMWJkYjIxYjA1MDQ1MjdiYjVmODFjN2Q3MTg3YmQ1IiwidXNlcl9pZCI6MTd9.y_YHYM6GmJbvQO18Q2gvxThsbJBHX_NKuWZakaYMakc', // 
+          'Cookie': 'csrftoken=your_csrf_token_here; sessionid=your_session_id_here', // Replace with your actual CSRF token and session ID
         },
       });
       const data = await response.json();
@@ -75,11 +51,9 @@ const ProductTable = () => {
       console.error('Error deleting product:', error);
     }
   };
-
-
   const route = useRouter()
 
-  const columnsData: TableColumn<ProductType>[] = [
+  const columns: TableColumn<ProductType>[] = [
     {
       name: "ID",
       selector: (row): any => (
@@ -97,7 +71,7 @@ const ProductTable = () => {
     {
       name: "Image",
       selector: (row): any => (
-        <Image src={row.image} width={80} height={80} alt="product" />
+        <Image src={`${row.image}`} width={80} height={80} alt="product" />
       ),
     },
     {
@@ -145,92 +119,46 @@ const ProductTable = () => {
   ];
 
   useEffect(() => {
-    async function fetchData() {
-      const data = await fetch(`${BASE_API_URL}products/`);
-      const response = await data.json();
-      setProduct(response.results);
-      setFilter(response.results);
-    }
-    fetchData();
-    setIsLoading(false);
-  }, []);
+    fetch(BASE_URL).then(res => res.json())
+      .then(data => setData(data.results))
+    setIsLoading(false)
+  }, [])
 
   useEffect(() => {
     if (!search) {
-      setFilter(getProduct);
+      setFilter(getData);
       return;
     }
-    const result = getProduct.filter((item: ProductType) => {
+    const result = getData.filter((item: ProductType) => {
       return item.name?.toLowerCase().includes(search.toLowerCase());
     });
     setFilter(result);
-  }, [getProduct, search]); // Include getProduct and search in the dependency array
-  
-
-  const paginationComponentOptions = {
-    rowsPerPageText: "ជួរដេកក្នុងមួយទំព័រ",
-    rangeSeparatorText: "នៃ",
-    selectAllRowsItem: true,
-    selectAllRowsItemText: "ទាំងអស់",
-  };
+  }, [getData, search]);
 
 
   return (
-    <div className="w-full">
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
-        <ModalContent>
-          {(onClose) => (
-            <>
-              <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
-              <ModalBody>
-                <p> 
-                  {productDetail.name}
-                </p>
-                <p>
-                  {productDetail.desc}
-                </p>
-                <p>
-                  {productDetail.price}
-                </p>
-                <Image src={productDetail.image} width={100} height={100} alt="user" />
-              
-              </ModalBody>
-            </>
-          )}
-        </ModalContent>
-      </Modal>
-
-      <DataTable
-        progressPending={isLoading}
-        columns={columnsData}
-        fixedHeader={true}
-        fixedHeaderScrollHeight="500px"
+    <>
+      <div className="flex flex-col w-[340px] pt-2 m-auto text-center sm:mx-7 sm:w-[700px]  mg:w-[1000px] lg:w-[1200px]  lg:justify-between lg:flex h-max bg-[whitesmoke]">
+        <DataTable
         selectableRows
-        pagination
-        subHeader
-        // customStyles={customStyles}
-        subHeaderComponent={
-          <input
-            className="bg-white border-[1px] px-9 py-2 w-max rounded-md"
-            style={{ borderColor: borderColor }}
-            placeholder="Search"
-            value={search}
-            onChange={handleInputChange}
-          ></input>
-        }
-        paginationComponentOptions={paginationComponentOptions}
-        onSelectedRowsChange={() => console.log("row selected")}
-        progressComponent={<LoadingComponent />}
-        customStyles={customStyles}
-        data={filter}
-        // actions={
-        //   <Button size="sm" color="primary">
-        //     Export PDF
-        //   </Button>
-        // }
-      />
-    </div>
-  );
-};
-
-export default ProductTable;
+          progressPending={isLoading}
+          columns={columns}
+          fixedHeader={true}
+          fixedHeaderScrollHeight="500px"
+          subHeader
+          subHeaderComponent={ 
+            <input
+              className=" bg-white border-[1px] px-9 py-2 w-[150px] md:w-[200px] lg:w-[300px] rounded-md"
+              style={{ borderColor: borderColor }}
+              placeholder="Search"
+              value={search}
+              onChange={handleInputChange}
+            ></input>
+          }
+          progressComponent={<LoadingComponent />}
+          data={filter}
+        />
+      </div>
+    </>
+  )
+}
