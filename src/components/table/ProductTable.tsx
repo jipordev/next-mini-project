@@ -27,6 +27,7 @@ const ProductTable =() => {
   const [productDetail, setProductDetail] = useState({} as ProductType)
   const [borderColor, setBorderColor] = useState("#ff8b00");
   const [openModal, setOpenModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleDetail = (value: ProductType) => {
     onOpen();
@@ -53,6 +54,7 @@ const ProductTable =() => {
       console.error('Error deleting product:', error);
     }
   };
+  
   const route = useRouter()
 
   const columns: TableColumn<ProductType>[] = [
@@ -99,7 +101,7 @@ const ProductTable =() => {
                 View Detail
               </DropdownItem>
 
-                <DropdownItem key="edit" onClick={() => route.push("/dashboard/update")}
+                <DropdownItem key="edit" onClick={() => route.push("dashbaord")}
                 className="w-max hover:rounded-xl font-bold text-yellow-400 hover:bg-yellow-400 hover:font-bold hover:text-white"
                 >
                   Edit
