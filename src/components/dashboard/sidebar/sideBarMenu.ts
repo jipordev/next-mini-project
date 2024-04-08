@@ -12,15 +12,5 @@ export const sideBarItem = [
         title: "Create Product",
         path: "/dashboard/create",
         icon: HiChartPie
-    },
-    {
-        title: "Update Product",
-        path: "/dashboard/update",
-        icon: HiChartPie
-    },
-    {
-        title: "Setting",
-        path: "/dashboard/setting",
-        icon: HiViewBoards
-    },
+    }
 ]

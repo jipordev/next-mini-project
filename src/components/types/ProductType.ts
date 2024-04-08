@@ -6,5 +6,9 @@ export type ProductType = {
     desc:string,
     price?:number | string,
     quantity:number
+    category:{
+        name:string,
+        icon:string
+    }
 
 }

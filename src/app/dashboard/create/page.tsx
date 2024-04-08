@@ -3,9 +3,9 @@ import React from 'react'
 
 export default function page() {
   return (
-    <div>
+    <main className='bg-[whitesmoke] '>
       <FormCreateProduct/>
-    </div>
+    </main>
   )
 }
 

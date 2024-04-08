@@ -12,13 +12,13 @@ import {
 import Image from "next/image";
 import { IoEllipsisHorizontal } from "react-icons/io5";
 import { ProductType } from "../types/ProductType";
-import { useDisclosure } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
+import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure} from "@nextui-org/react";
 
 
 const BASE_URL = "https://store.istad.co/api/products/"
 
-export default function ProductTable() {
+const ProductTable =() => {
   const [getData, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -26,9 +26,11 @@ export default function ProductTable() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const [productDetail, setProductDetail] = useState({} as ProductType)
   const [borderColor, setBorderColor] = useState("#ff8b00");
+  const [openModal, setOpenModal] = useState(false);
 
   const handleDetail = (value: ProductType) => {
     onOpen();
+    setOpenModal(true)
     setProductDetail(value)
   }
   const handleInputChange = (e: any) => {
@@ -89,8 +91,10 @@ export default function ProductTable() {
 
               <DropdownItem
                 className="w-max hover:rounded-xl font-bold text-green-400 hover:bg-green-400 hover:font-bold hover:text-white"
+                // key="detail"
+                // onClick={() => route.push(`/${row.id}`)}
                 key="detail"
-                onClick={() => route.push(`/${row.id}`)}
+                  onClick={()=> handleDetail(row)}
               >
                 View Detail
               </DropdownItem>
@@ -139,6 +143,25 @@ export default function ProductTable() {
   return (
     <>
       <div className="flex flex-col w-[340px] pt-2 m-auto text-center sm:mx-7 sm:w-[700px]  mg:w-[1000px] lg:w-[1200px]  lg:justify-between lg:flex h-max bg-[whitesmoke]">
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} className="font-kantumruy">
+        <ModalContent>
+          {(onClose) => (
+            <>
+              <ModalHeader className="flex flex-col gap-1">Product details</ModalHeader>
+              <ModalBody>
+                <p className="font-medium text-xl"> 
+                  {productDetail.name}
+                </p>
+                <p className="text-[14px]">
+                  {productDetail.desc}
+                </p>
+                <Image src={productDetail.image} width={100} height={100} alt="product" />
+              
+              </ModalBody>
+            </>
+          )}
+        </ModalContent>
+      </Modal>
         <DataTable
         selectableRows
           progressPending={isLoading}
@@ -162,3 +185,4 @@ export default function ProductTable() {
     </>
   )
 }
+export default ProductTable

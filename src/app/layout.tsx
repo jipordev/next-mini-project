@@ -41,11 +41,11 @@ export default function RootLayout({
   return (  
     <html lang="en">
       <body className={kantumruy_pro.className}>
-        <div className="h-screen flex flex-col justify-between text-[#34416A] bg-[whitesmoke]" >
+        <main className="h-screen flex flex-col justify-between text-[#34416A] bg-[whitesmoke]" >
           <NavBarComponent/>  
           {children}
           <FooterComponent/>
-        </div>
+        </main>
       </body>
     </html>
   );

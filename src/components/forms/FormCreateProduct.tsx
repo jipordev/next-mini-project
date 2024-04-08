@@ -34,7 +34,7 @@ const FormCreateProduct = () => {
   myHeaders.append("Content-Type", "application/json");
   myHeaders.append(
     "Authorization",
-    "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NTcxNTA0LCJpYXQiOjE3MTI0MTE1MDQsImp0aSI6ImI0NTk4ZDZhYWNiOTRkYjI5MDgzOWY4ZTc2YmRjMmQ4IiwidXNlcl9pZCI6MTd9.hiYI2VHSW4jPLhpbs-taPzRNq8y4PjGSczRJ1IzAVqQ"
+    "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NzIyOTU0LCJpYXQiOjE3MTI1NjI5NTQsImp0aSI6IjBkNGU1MzRlNzJiYTQzOGJhN2VmOThmZGY2YzM3NzczIiwidXNlcl9pZCI6MTd9.LWEV5zKLQJjUA7tJPQRUJDiz1Sckcm2gCbZd9JWeNyI"
   );
   myHeaders.append(
     "Cookie",
@@ -73,7 +73,7 @@ const FormCreateProduct = () => {
   };
 
   return (
-    <div className="w-max pt-9 mx-auto">
+    <div className="w-[700px] mx-auto h-[1000px]">
       <Formik
         onSubmit={(values: any, { setSubmitting, resetForm }) => {
           console.log(values);
@@ -87,8 +87,8 @@ const FormCreateProduct = () => {
         validationSchema={validationSchema}
         initialValues={{
           category: {
-            name: "Hiking shoes",
-            icon: "https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1693342954-rincon-3-64ee5ca62e001.jpg?crop=1xw:1xh;center,top&resize=980:*",
+            name: "",
+            icon: "",
           },
           name: "",
           desc: "",
@@ -100,10 +100,33 @@ const FormCreateProduct = () => {
         {({ isSubmitting, setFieldValue }) => (
           <Form className="flex m-[30px] flex-col gap-4">
             {/* name */}
+            {/* Category Name */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="category.name">Category Name:</label>
+              <Field
+                placeholder="Category name"
+                className={fieldStyle}
+                name="category.name"
+                type="text"
+              />
+              <ErrorMessage name="category.name" />
+            </div>
+
+            {/* Category Icon */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="category.icon">Category Icon URL:</label>
+              <Field
+                placeholder="Category icon URL"
+                className={fieldStyle}
+                name="category.icon"
+                type="text"
+              />
+              <ErrorMessage name="category.icon" />
+            </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="name">Product Name: </label>
               <Field
-                placeholder="T-shirt"
+                placeholder="Your product name"
                 className={fieldStyle}
                 name="name"
                 type="text"
@@ -116,7 +139,7 @@ const FormCreateProduct = () => {
             <div className="flex flex-col gap-2">
               <label htmlFor="desc">Description: </label>
               <Field
-                placeholder="This is a t-shirt"
+                placeholder="Your product description"
                 className={fieldStyle}
                 name="desc"
                 type="text"
@@ -129,7 +152,7 @@ const FormCreateProduct = () => {
             <div className="flex flex-col gap-2">
               <label htmlFor="price">Price: </label>
               <Field
-                placeholder="100"
+                placeholder="$0"
                 className={fieldStyle}
                 name="price"
                 type="number"
