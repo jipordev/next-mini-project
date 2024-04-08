@@ -45,7 +45,7 @@ const ProductTable =() => {
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE0NzIyOTU0LCJpYXQiOjE3MTI1NjI5NTQsImp0aSI6IjBkNGU1MzRlNzJiYTQzOGJhN2VmOThmZGY2YzM3NzczIiwidXNlcl9pZCI6MTd9.LWEV5zKLQJjUA7tJPQRUJDiz1Sckcm2gCbZd9JWeNyI', // 
-          'Cookie': 'csrftoken=your_csrf_token_here; sessionid=your_session_id_here', // Replace with your actual CSRF token and session ID
+          'Cookie': 'YTh2LaLroyTm4QAw87hAxDQyUIzqCbvDrcm4LDJ0vw0xDIN281aQj7KOKccFYYsw; sessionid=6c3q0xwc56m9r87el38wicfiqr3mj9u1', // Replace with your actual CSRF token and session ID
         },
       });
       const data = await response.json();
