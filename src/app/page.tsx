@@ -43,6 +43,10 @@ export default function ProductPage() {
           {products.map((product: ProductType) => (
             <Link href={`/${product.id}`} key={product.id}>
               <ProductCard
+                category={{
+                  name:product.category.name,
+                  icon:product.category.icon
+                }}
                 name={product.name}
                 price={product.price}
                 image={product.image}
