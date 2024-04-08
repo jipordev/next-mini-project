@@ -101,7 +101,7 @@ const ProductTable =() => {
                 View Detail
               </DropdownItem>
 
-                <DropdownItem key="edit" onClick={() => route.push("dashbaord")}
+                <DropdownItem key="edit" onClick={() => route.push("/dashboard/update")}
                 className="w-max hover:rounded-xl font-bold text-yellow-400 hover:bg-yellow-400 hover:font-bold hover:text-white"
                 >
                   Edit
